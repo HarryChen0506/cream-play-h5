@@ -2,9 +2,11 @@
 import BasicLayout from '@/layouts/BasicLayout'
 import Dashboard from '@/pages/Dashboard'
 import Login from '@/pages/Login'
+import Question from '@/pages/Question'
 
 export const ROUTE = {
   LOGIN: '/login',
+  QUESTION: '/question',
   DASHBOARD: '/dashboard',
   // USER: '/user/:userId',
 }
@@ -13,11 +15,16 @@ const routerConfig = [
   {
     path: '/',
     exact: true,
-    redirect: '/dashboard',
+    redirect: '/question',
   },
   {
     path: '/login',
     component: Login,
+    exact: true
+  },
+  {
+    path: '/question',
+    component: Question,
     exact: true
   },
   {
