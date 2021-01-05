@@ -15,7 +15,7 @@ const routerConfig = [
   {
     path: '/',
     exact: true,
-    redirect: '/cream-play-h5/question',
+    redirect: '/question',
   },
   {
     path: '/login',
@@ -23,7 +23,7 @@ const routerConfig = [
     exact: true
   },
   {
-    path: '/cream-play-h5/question',
+    path: '/question',
     component: Question,
     exact: true
   },
