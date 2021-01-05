@@ -58,7 +58,7 @@ const findQuestionById = (list, id) => {
 
 
 const Question = () => {
-  const {location} = useHistory()
+  const { location } = useHistory()
   const query = parse(location.search.split('?')[1])
   console.log('query', query)
   const [id, setId] = useState(query.id)
@@ -75,15 +75,15 @@ const Question = () => {
         >
           <OptionItem
             active={true}
-            url={'/assets/question/topic_1/shao.png'}
+            url={PUBLIC_URL + '/assets/question/topic_1/shao.png'}
           ></OptionItem>
           <OptionItem
             active={false}
-            url={'/assets/question/topic_1/gun.png'}
+            url={PUBLIC_URL + '/assets/question/topic_1/gun.png'}
           ></OptionItem>
           <OptionItem
             active={false}
-            url={'/assets/question/topic_1/qianbi.png'}
+            url={PUBLIC_URL + '/assets/question/topic_1/qianbi.png'}
           ></OptionItem>
         </QuestionItem>
       </div>
