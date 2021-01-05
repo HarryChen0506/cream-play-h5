@@ -70,7 +70,8 @@ function getDefinePluginConfig(env, args) {
     ...env.stringified,
     __MOCK__: JSON.stringify(isMock),
     __DEV__: process.env.NODE_ENV === 'development',
-    __VERSION__: JSON.stringify(appPackageJson.version)
+    __VERSION__: JSON.stringify(appPackageJson.version),
+    __PUBLIC_URL__: JSON.stringify(process.env.PUBLIC_URL ? process.env.PUBLIC_URL : '')
   }
 }
 

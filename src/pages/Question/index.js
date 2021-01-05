@@ -32,20 +32,21 @@ const QuestionItem = (props) => {
     </div>
   )
 }
-
+const PUBLIC_URL = __PUBLIC_URL__
+console.log('PUBLIC_URL', PUBLIC_URL)
 const questionList = [
   {
     id: '1',
     type: 'select',
     options: [
       {
-        url: '/assets/question/topic_1/shao.png'
+        url: PUBLIC_URL + '/assets/question/topic_1/shao.png'
       },
       {
-        url: '/assets/question/topic_1/gun.png'
+        url: PUBLIC_URL + '/assets/question/topic_1/gun.png'
       },
       {
-        url: '/assets/question/topic_1/qianbi.png'
+        url: PUBLIC_URL + '/assets/question/topic_1/qianbi.png'
       },
     ],
     rightIndex: 0
@@ -54,6 +55,7 @@ const questionList = [
 const findQuestionById = (list, id) => {
   return list.find(v => v.id === id)
 }
+
 
 const Question = () => {
   const {location} = useHistory()
