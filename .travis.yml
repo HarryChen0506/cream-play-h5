@@ -15,7 +15,7 @@ branches:
 install:
   - yarn install
 script:
-  - yarn run build
+  - yarn run build:gh-pages
 after_success:
   - cat coverage/lcov.info | node_modules/coveralls/bin/coveralls.js
   - test $TRAVIS_BRANCH == "develop" && echo "develop branch"
