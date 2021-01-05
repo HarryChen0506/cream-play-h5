@@ -9,6 +9,7 @@
     "build": "cross-env GENERATE_SOURCEMAP=false node scripts/build.js",
     "build:nginx": "node scripts/buildNginxConfig.js",
     "test": "node scripts/test.js",
+    "lint": "eslint src --ext js",
     "travis": "npm run lint",
     "commit": "git cz"
   },
