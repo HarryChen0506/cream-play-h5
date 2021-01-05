@@ -22,7 +22,7 @@ after_success:
   - cat coverage/lcov.info | node_modules/coveralls/bin/coveralls.js
   - test $TRAVIS_BRANCH == "develop" && echo "develop branch"
 before_deploy:
-  - npm run build
+  - yarn run build
 deploy:
   provider: pages # 解析支持者为 github pages
   keep-history: true # 禁止travis对你对项目进行强制推送
