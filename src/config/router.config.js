@@ -15,7 +15,7 @@ const routerConfig = [
   {
     path: '/',
     exact: true,
-    redirect: '/question',
+    redirect: '/cream-play-h5/question',
   },
   {
     path: '/login',
@@ -23,18 +23,23 @@ const routerConfig = [
     exact: true
   },
   {
-    path: '/question',
+    path: '/cream-play-h5/question',
     component: Question,
     exact: true
   },
   {
-    path: '/',
-    component: BasicLayout,
-    authority: [], // 'admin', 'user'
-    routes: [
-      { path: '/dashboard', name: 'dashboard', exact: true, authority: ['admin', 'user'], component: Dashboard },
-    ]
+    path: '/question',
+    component: Question,
+    exact: true
   },
+  // {
+  //   path: '/',
+  //   component: BasicLayout,
+  //   authority: [], // 'admin', 'user'
+  //   routes: [
+  //     { path: '/dashboard', name: 'dashboard', exact: true, authority: ['admin', 'user'], component: Dashboard },
+  //   ]
+  // },
 ]
 
 export default routerConfig
