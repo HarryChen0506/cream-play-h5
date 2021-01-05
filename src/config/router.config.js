@@ -13,7 +13,7 @@ export const ROUTE = {
 
 const routerConfig = [
   {
-    path: '/',
+    path: '/cream-play-h5',
     exact: true,
     redirect: '/cream-play-h5/question',
   },

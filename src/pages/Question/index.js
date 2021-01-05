@@ -1,7 +1,9 @@
 /* eslint-disable */
 
 import React, { useState, useCallback } from 'react';
-// import { useHistory } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+import { parse, stringify } from 'qs'
 import './index.less'
 
 const OptionItem = (props) => {
@@ -33,6 +35,7 @@ const QuestionItem = (props) => {
 
 const questionList = [
   {
+    id: '1',
     type: 'select',
     options: [
       {
@@ -48,11 +51,20 @@ const questionList = [
     rightIndex: 0
   }
 ]
+const findQuestionById = (list, id) => {
+  return list.find(v => v.id === id)
+}
 
 const Question = () => {
-  const [id, setId] = useState()
-  const [info, setInfo] = useState({})
+  const {location} = useHistory()
+  const query = parse(location.search.split('?')[1])
+  console.log('query', query)
+  const [id, setId] = useState(query.id)
+  const [info, setInfo] = useState(() => {
+    return findQuestionById(questionList, id)
+  })
   const [result, setResult] = useState(false)
+  console.log('info', info)
   return (
     <div className="page-question">
       <div className="page-body">
