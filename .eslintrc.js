@@ -27,8 +27,8 @@ module.exports = {
     quotes: ['error', 'single'],
     semi: ['error', 'always'],
     'no-return-assign': 0,
-    'no-console': 'warn',
-    'no-unused-vars': ['warn'],
+    'no-console': 0,
+    'no-unused-vars': [0],
     'import/no-unresolved': 0,
     'space-before-function-paren': ['error', {
       anonymous: 'always',
@@ -53,7 +53,7 @@ module.exports = {
     // retina app configuration
     'react/prop-types': OFF,
     'react/sort-comp': WARN,
-    'react/jsx-props-no-spreading': WARN,
+    'react/jsx-props-no-spreading': 0,
     'react/state-in-constructor': OFF,
     'react/jsx-filename-extension': [ERROR, { extensions: ['.js', '.jsx'] }],
     'react/no-did-update-set-state': WARN, // setState in DidUpdate should be used in condition

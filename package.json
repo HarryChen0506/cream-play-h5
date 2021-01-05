@@ -2,6 +2,7 @@
   "name": "cream-play-h5",
   "version": "0.0.1",
   "private": false,
+  "homepage": "/cream-play-h5",
   "scripts": {
     "start": "npm run dev",
     "dev": "cross-env PORT=8000 node scripts/start.js",
