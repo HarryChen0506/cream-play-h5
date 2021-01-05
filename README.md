@@ -1,10 +1,12 @@
 # cream-play-h5
 
+
+[demo](https://harrychen0506.github.io/cream-play-h5/)
+
 ### init 
 
 ``` bash
 $ npm install -g yarn # 全局安装yarn, 如果全局已安装跳过该步骤
-$ cd /
 $ yarn install
 ```
 
@@ -30,3 +32,12 @@ $ npm run dev:mock  # backend api is remote mock data
 ``` bash
 $ npm run build
 ```
+
+### CI 持续构建
+
+``` bash
+$ npm install -g yarn # 全局安装yarn, 如果全局已安装跳过该步骤
+$ yarn install
+$ yarn run build
+```
+

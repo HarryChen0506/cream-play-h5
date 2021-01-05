@@ -15,7 +15,7 @@ const Question = () => (
             <div className='result'></div>
           </div>
           <div className='option-item'>
-            <img src='/assets/question/topic_1/勺.png'></img>
+            <img src='/assets/question/topic_1/shao.png'></img>
           </div>
           <div className='option-item'></div>
         </div>
