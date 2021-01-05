@@ -11,9 +11,7 @@ addons:
   chrome: stable
 branches:
   only:
-  - master
   - main
-  - develop
 install:
   - yarn install
 script:
