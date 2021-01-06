@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/cream-play-h5/static/css/main.5901fddf.chunk.css",
-    "main.js": "/cream-play-h5/static/js/main.039f3334.chunk.js",
+    "main.js": "/cream-play-h5/static/js/main.404750b9.chunk.js",
     "runtime-main.js": "/cream-play-h5/static/js/runtime-main.9730d9de.js",
-    "static/js/2.c1a260c9.chunk.js": "/cream-play-h5/static/js/2.c1a260c9.chunk.js",
+    "static/js/2.48ed23ca.chunk.js": "/cream-play-h5/static/js/2.48ed23ca.chunk.js",
     "index.html": "/cream-play-h5/index.html",
-    "static/js/2.c1a260c9.chunk.js.LICENSE.txt": "/cream-play-h5/static/js/2.c1a260c9.chunk.js.LICENSE.txt"
+    "static/js/2.48ed23ca.chunk.js.LICENSE.txt": "/cream-play-h5/static/js/2.48ed23ca.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.9730d9de.js",
-    "static/js/2.c1a260c9.chunk.js",
+    "static/js/2.48ed23ca.chunk.js",
     "static/css/main.5901fddf.chunk.css",
-    "static/js/main.039f3334.chunk.js"
+    "static/js/main.404750b9.chunk.js"
   ]
 }
