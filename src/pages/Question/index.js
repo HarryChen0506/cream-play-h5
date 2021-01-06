@@ -1,4 +1,6 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, {
+  useEffect, useState, useCallback, useRef,
+} from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 
 import { parse, stringify } from 'qs';
@@ -10,8 +12,23 @@ console.log('PUBLIC_URL', PUBLIC_URL);
 
 const OptionItem = (props) => {
   const { active = false, url, onClick } = props;
+  const [shake, setShake] = useState(false);
+  const timerId = useRef(null);
+
+  const handleClick = () => {
+    typeof onClick === 'function' && onClick();
+    setShake(true);
+    if (timerId.current) {
+      return;
+    }
+    timerId.current = setTimeout(() => {
+      setShake(false);
+      timerId.current = null;
+    }, 2000);
+  };
+
   return (
-    <div className={`option-item ${active ? 'active' : ''}`} onClick={onClick}>
+    <div className={`option-item ${active ? 'active' : ''} ${shake ? 'shake' : ''}`} onClick={handleClick}>
       <div className="image-wrap">
         <img src={url} />
       </div>
