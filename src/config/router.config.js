@@ -1,7 +1,7 @@
 // import React from 'react'
-import BasicLayout from '@/layouts/BasicLayout'
-import Dashboard from '@/pages/Dashboard'
-import Login from '@/pages/Login'
+// import BasicLayout from '@/layouts/BasicLayout'
+// import Dashboard from '@/pages/Dashboard'
+// import Login from '@/pages/Login'
 import Question from '@/pages/Question'
 
 export const ROUTE = {
@@ -13,15 +13,20 @@ export const ROUTE = {
 
 const routerConfig = [
   {
+    path: '/',
+    exact: true,
+    redirect: '/question',
+  },
+  {
     path: '/cream-play-h5',
     exact: true,
     redirect: '/cream-play-h5/question',
   },
-  {
-    path: '/login',
-    component: Login,
-    exact: true
-  },
+  // {
+  //   path: '/login',
+  //   component: Login,
+  //   exact: true
+  // },
   {
     path: '/cream-play-h5/question',
     component: Question,
