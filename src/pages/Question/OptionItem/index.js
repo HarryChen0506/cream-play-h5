@@ -8,7 +8,9 @@ import './index.less';
 const PUBLIC_URL = __PUBLIC_URL__;
 
 const OptionItem = (props) => {
-  const { result = '', url, onClick } = props;
+  const {
+    result = '', url, onClick, size, marginSize, marginDirection,
+  } = props;
   const [shake, setShake] = useState(false);
   const [showResult, setShowResult] = useState(false);
   const timerId = useRef(null);
@@ -38,13 +40,15 @@ const OptionItem = (props) => {
           'bg-green': result === 'correct',
           shake,
           'show-result': showResult,
+          'margin-right-small': marginSize === 'small' && marginDirection === 'row',
+          'margin-right-middle': marginSize === 'middle' && marginDirection === 'row',
+          'margin-bottom-small': marginSize === 'small' && marginDirection === 'column',
+          'margin-bottom-middle': marginSize === 'middle' && marginDirection === 'column',
         },
       )}
       onClick={handleClick}
     >
-      <div className="image-wrap">
-        <img src={url} />
-      </div>
+      <Image size={size} url={url} />
       {result === 'correct'
         && (
           <div className="result">
@@ -54,5 +58,21 @@ const OptionItem = (props) => {
     </div>
   );
 };
+
+const Image = ({ size, url }) => (
+  <div className="component-image">
+    <img
+      className={clsx({
+        large: size === 'large',
+        small: size === 'small',
+        middle: size === 'middle',
+        'extra-large': size === 'extra-large',
+      })}
+      src={url}
+    />
+  </div>
+);
+
+OptionItem.Image = Image;
 
 export default OptionItem;
