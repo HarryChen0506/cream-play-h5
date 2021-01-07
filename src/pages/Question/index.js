@@ -2,56 +2,15 @@ import React, {
   useEffect, useState, useCallback, useRef,
 } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
-
+import clsx from 'clsx';
 import { parse, stringify } from 'qs';
+import Select from './Select';
+import QuestionItem from './QuestionItem';
 import './index.less';
 
 // eslint-disable-next-line no-undef
 const PUBLIC_URL = __PUBLIC_URL__;
 console.log('PUBLIC_URL', PUBLIC_URL);
-
-const OptionItem = (props) => {
-  const { active = false, url, onClick } = props;
-  const [shake, setShake] = useState(false);
-  const timerId = useRef(null);
-
-  const handleClick = () => {
-    typeof onClick === 'function' && onClick();
-    setShake(true);
-    if (timerId.current) {
-      return;
-    }
-    timerId.current = setTimeout(() => {
-      setShake(false);
-      timerId.current = null;
-    }, 2000);
-  };
-
-  return (
-    <div className={`option-item ${active ? 'active' : ''} ${shake ? 'shake' : ''}`} onClick={handleClick}>
-      <div className="image-wrap">
-        <img src={url} />
-      </div>
-      {active
-        && (
-          <div className="result">
-            <img src={`${PUBLIC_URL}/assets/question/right.png`} />
-          </div>
-        )}
-    </div>
-  );
-};
-const QuestionItem = (props) => {
-  const { children, title, onClick } = props;
-  return (
-    <div className="question-section" onClick={onClick}>
-      <div className="title">{title}</div>
-      <div className="question-body">
-        {children}
-      </div>
-    </div>
-  );
-};
 
 const questionList = [
   {
@@ -73,44 +32,12 @@ const questionList = [
 ];
 const findQuestionById = (list, id) => list.find(v => v.id === id);
 
-const Select = (props) => {
-  const { info = {} } = props;
-  const { options = [], correctIndex } = info;
-  const [currentIndex, setCurrentIndex] = useState();
-  const [isCorrect, setIsCorrect] = useState(false);
-  console.log('info', info);
-  const handleClick = (index) => {
-    console.log('index', index);
-    setCurrentIndex(index);
-  };
-  useEffect(() => {
-    if (currentIndex === correctIndex) {
-      setIsCorrect(true);
-    } else {
-      setIsCorrect(false);
-    }
-  }, [currentIndex, correctIndex]);
-  return (
-    <>
-      {options.map((v, i) => (
-        <OptionItem
-          key={v.url}
-          active={correctIndex === i && isCorrect}
-          url={v.url}
-          onClick={() => handleClick(i)}
-        />
-      ))}
-    </>
-  );
-};
-
 const Question = () => {
   const { location } = useHistory();
   const query = parse(location.search.split('?')[1]);
   console.log('query', query);
   const [id, setId] = useState(query.id || '1');
   const [info, setInfo] = useState(() => findQuestionById(questionList, id));
-  const [result, setResult] = useState(false);
   console.log('info', info);
   return (
     <div className="page-question">
