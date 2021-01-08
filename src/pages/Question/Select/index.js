@@ -1,15 +1,16 @@
 import React, {
   useEffect, useState, useCallback, useRef,
 } from 'react';
+import clsx from 'clsx';
 import OptionItem from '../OptionItem';
 import './index.less';
 
 const { Image } = OptionItem;
-
+// optionDirection =  horizontal | vertical
 const Select = (props) => {
   const { info = {} } = props;
   const {
-    options = [], right, top, correctIndex,
+    options = [], right, top, correctIndex, optionDirection = 'horizontal',
   } = info;
   const [currentIndex, setCurrentIndex] = useState();
   // console.log('info', info);
@@ -36,11 +37,17 @@ const Select = (props) => {
         )}
 
       <div className="body">
-        <div className="body-left row">
+        <div
+          className={clsx({
+            'body-left': true,
+            'direction-horizontal': optionDirection === 'horizontal',
+            'direction-vertical': optionDirection === 'vertical',
+          })}
+        >
           {options.map((v, i) => (
             <OptionItem
-              marginSize={v.size}
-              marginDirection="row"
+              marginSize={v.marginSize}
+              direction={optionDirection}
               size={v.size}
               key={v.url}
               result={clacOptionResult(i)}

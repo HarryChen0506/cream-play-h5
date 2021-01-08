@@ -9,7 +9,7 @@ const PUBLIC_URL = __PUBLIC_URL__;
 
 const OptionItem = (props) => {
   const {
-    result = '', url, onClick, size, marginSize, marginDirection,
+    result = '', url, onClick, size, marginSize = 'middle', direction = 'horizontal',
   } = props;
   const [shake, setShake] = useState(false);
   const [showResult, setShowResult] = useState(false);
@@ -40,10 +40,14 @@ const OptionItem = (props) => {
           'bg-green': result === 'correct',
           shake,
           'show-result': showResult,
-          'margin-right-small': marginSize === 'small' && marginDirection === 'row',
-          'margin-right-middle': marginSize === 'middle' && marginDirection === 'row',
-          'margin-bottom-small': marginSize === 'small' && marginDirection === 'column',
-          'margin-bottom-middle': marginSize === 'middle' && marginDirection === 'column',
+          'margin-right-small': marginSize === 'small' && direction === 'horizontal',
+          'margin-right-middle': marginSize === 'middle' && direction === 'horizontal',
+          'margin-right-large': marginSize === 'large' && direction === 'horizontal',
+          'margin-right-extra-large': marginSize === 'extra-large' && direction === 'horizontal',
+          'margin-bottom-small': marginSize === 'small' && direction === 'vertical',
+          'margin-bottom-middle': marginSize === 'middle' && direction === 'vertical',
+          'margin-bottom-large': marginSize === 'large' && direction === 'vertical',
+          'margin-bottom-extra-large': marginSize === 'extra-large' && direction === 'vertical',
         },
       )}
       onClick={handleClick}
@@ -51,7 +55,13 @@ const OptionItem = (props) => {
       <Image size={size} url={url} />
       {result === 'correct'
         && (
-          <div className="result">
+          <div
+            className={clsx({
+              result: true,
+              'pos-right': direction === 'vertical',
+              'pos-bottom': direction === 'horizontal',
+            })}
+          >
             <img src={`${PUBLIC_URL}/assets/question/right.png`} />
           </div>
         )}

@@ -1,5 +1,5 @@
 .component-option-item {
-  border-radius: 13%;
+  border-radius: 0.8rem;
   position: relative;
   padding: 3px;
   &.margin-right-small {
@@ -35,14 +35,21 @@
   }
   .result {
     position: absolute;
-    bottom: -50px;
-    left: 50%;
-    transform: translate(-50%, 0);
     width: 30px;
     height: 30px;
     img {
       width: 30px;
       height: 30px;
+    }
+    &.pos-bottom {
+      bottom: -5rem;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+    &.pos-right {
+      right: -7rem;
+      top: 50%;
+      transform: translate(-50%, -50%);
     }
   }
   &:last-of-type {
