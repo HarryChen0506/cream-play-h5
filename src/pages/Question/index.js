@@ -5,6 +5,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import clsx from 'clsx';
 import { parse, stringify } from 'qs';
 import Select from './Select';
+import Drag from './Drag';
 import QuestionItem from './QuestionItem';
 import './index.less';
 
@@ -126,6 +127,11 @@ const questionList = [
     optionDirection: 'horizontal',
     correctIndex: 1,
   },
+  {
+    id: 'B11',
+    type: 'drag',
+    title: '小朋友, 拖动一下试试吧',
+  },
 ];
 const findQuestionById = (list, id) => list.find(v => v.id === id);
 
@@ -135,18 +141,37 @@ const Question = () => {
   // console.log('query', query);
   const [id, setId] = useState(query.id || 'M1');
   const [info, setInfo] = useState(() => findQuestionById(questionList, id));
-  // console.log('info', info);
-  return (
-    <div className="page-question">
-      <div className="page-body">
-        <QuestionItem
-          title={info.title}
-        >
-          <Select info={info} />
-        </QuestionItem>
+  if (!info) {
+    return null;
+  }
+  console.log('info', info);
+  if (info.type === 'select') {
+    return (
+      <div className="page-question">
+        <div className="page-body">
+          <QuestionItem
+            title={info.title}
+          >
+            <Select info={info} />
+          </QuestionItem>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
+  if (info.type === 'drag') {
+    return (
+      <div className="page-question">
+        <div className="page-body">
+          <QuestionItem
+            title={info.title}
+          >
+            <Drag />
+          </QuestionItem>
+        </div>
+      </div>
+    );
+  }
+  return null;
 };
 
 export default Question;

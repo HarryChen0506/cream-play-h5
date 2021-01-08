@@ -1,0 +1,84 @@
+.component-drag {
+  position: relative;
+  .bg-wrap {
+    width: 30rem;
+    height: 16.8rem;
+    background-color: red;
+    font-size: 0;
+    img {
+      width: 100%;
+    }
+  }
+  .shu-size {
+    position: absolute;
+    top: 0;
+    left:0;
+    transform: translate(-50%, -50%);
+    width: 2.1rem;
+    img {
+      width: 100%;
+    }
+  }
+  .xuxian-size {
+    width: 6rem;
+    img {
+      width: 100%;
+    }
+  }
+  .yuanzhu-size {
+    position: absolute;
+    top: 0;
+    left:0;
+    transform: translate(-50%, -50%);
+    width: 6rem;
+    img {
+      width: 100%;
+    }
+  }
+  // 位置
+  .xuxian-wrap {
+    position: absolute;
+    left: 20%;
+    top: 50%;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+  }
+  .yuanzhu-inner-pos  {
+    position: absolute;
+    left: 49%;
+    top: 31%;
+    z-index: 2;
+    transform: translate(-50%, -50%);
+    opacity: 0.3;
+  }
+  .shu-inner-pos {
+    position: absolute;
+    left: 50%;
+    top: 77%;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    opacity: 0.3;
+  }
+  
+  .shu-outer-pos {
+    position: absolute;
+    left: 80%;
+    top: 50%;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+  }
+  .yuanzhu-outer-pos {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.component-dragger {
+  position: absolute;
+  &.hidden {
+    opacity: 0;
+  }
+}
