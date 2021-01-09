@@ -181,10 +181,10 @@ const DragPlay = (props) => {
   return (
     <div className="component-drag" id="dragger-container">
       <div className="bg-wrap">
-        <img className="img" src={`${PUBLIC_URL}/assets/question/B11/beijing.png`} />
+        <img className="img" src={`${PUBLIC_URL}/assets/question/B9/beijing.png`} />
       </div>
       <div className="xuxian-wrap xuxian-size">
-        <img className="img" src={`${PUBLIC_URL}/assets/question/B11/xuxian.png`} />
+        <img className="img" src={`${PUBLIC_URL}/assets/question/B9/xuxian.png`} />
       </div>
       <Group
         target={{
@@ -193,7 +193,7 @@ const DragPlay = (props) => {
           zIndex: 2,
           node: (
             <div className="yuanzhu-size" style={{ opacity: 1 }}>
-              <img className="img" src={`${PUBLIC_URL}/assets/question/B11/yuanzhu.png`} />
+              <img className="img" src={`${PUBLIC_URL}/assets/question/B9/yuanzhu.png`} />
             </div>
           ),
         }}
@@ -203,7 +203,7 @@ const DragPlay = (props) => {
           zIndex: 2,
           node: (
             <div className="yuanzhu-size">
-              <img className="img" src={`${PUBLIC_URL}/assets/question/B11/yuanzhu.png`} />
+              <img className="img" src={`${PUBLIC_URL}/assets/question/B9/yuanzhu.png`} />
             </div>
           ),
         }}
@@ -216,7 +216,7 @@ const DragPlay = (props) => {
           zIndex: 1,
           node: (
             <div className="shu-size" style={{ opacity: 1 }}>
-              <img className="img" src={`${PUBLIC_URL}/assets/question/B11/shu.png`} />
+              <img className="img" src={`${PUBLIC_URL}/assets/question/B9/shu.png`} />
             </div>
           ),
         }}
@@ -226,7 +226,7 @@ const DragPlay = (props) => {
           zIndex: 1,
           node: (
             <div className="shu-size" draggable>
-              <img className="img" src={`${PUBLIC_URL}/assets/question/B11/shu.png`} />
+              <img className="img" src={`${PUBLIC_URL}/assets/question/B9/shu.png`} />
             </div>
           ),
         }}

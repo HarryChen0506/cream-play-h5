@@ -1,5 +1,4 @@
 const PUBLIC_URL = __PUBLIC_URL__;
-console.log('PUBLIC_URL', PUBLIC_URL);
 
 // 方向 horizontal vertical
 
@@ -193,7 +192,7 @@ const questionList = [
     correctIndex: 0,
   },
   {
-    id: 'BL-2',
+    id: 'BL1-2',
     dir: 'B2',
     type: 'select',
     title: '小朋友,选一选,哪个颜色是青色呢?',
@@ -246,60 +245,131 @@ const questionList = [
     correctIndex: 2,
   },
   {
-    id: 'B6',
-    dir: 'B6',
+    id: 'BL1-4',
+    dir: 'B4',
     type: 'select',
     title: '小朋友,选一选,彩虹桌布缺少哪个颜色呢?',
     options: [
       {
         size: 'small',
         marginSize: 'small',
-        url: `${PUBLIC_URL}/assets/question/B6/hong.png`,
+        url: `${PUBLIC_URL}/assets/question/B4/hong.png`,
       },
       {
         size: 'small',
         marginSize: 'small',
-        url: `${PUBLIC_URL}/assets/question/B6/huang.png`,
+        url: `${PUBLIC_URL}/assets/question/B4/huang.png`,
       },
       {
         size: 'small',
         marginSize: 'small',
-        url: `${PUBLIC_URL}/assets/question/B6/zi.png`,
+        url: `${PUBLIC_URL}/assets/question/B4/zi.png`,
       },
     ],
     right: {
       size: 'large',
-      url: `${PUBLIC_URL}/assets/question/B6/zhuobu_que.png`,
+      url: `${PUBLIC_URL}/assets/question/B4/zhuobu_que.png`,
     },
     optionDirection: 'horizontal',
     correctIndex: 1,
   },
   {
-    id: 'B7',
-    dir: 'B7',
+    id: 'BL2-1',
+    dir: 'B5',
     type: 'select',
     title: '小朋友,选一选,下面哪组是立体图形?',
     options: [
       {
         size: 'extra-large',
         marginSize: 'small',
-        url: `${PUBLIC_URL}/assets/question/B7/pingmian.png`,
+        url: `${PUBLIC_URL}/assets/question/B5/pingmian.png`,
       },
       {
         size: 'extra-large',
         marginSize: 'small',
-        url: `${PUBLIC_URL}/assets/question/B7/liti.png`,
+        url: `${PUBLIC_URL}/assets/question/B5/liti.png`,
       },
     ],
     optionDirection: 'vertical',
     correctIndex: 1,
   },
-
   {
-    id: 'B11',
-    dir: 'B11',
+    id: 'BL2-2',
+    dir: 'B6',
+    type: 'select',
+    title: '小朋友,选一选,下面哪一个是正方体呢?',
+    options: [
+      {
+        size: 'middle',
+        url: `${PUBLIC_URL}/assets/question/B6/lifangti.png`,
+      },
+      {
+        size: 'middle',
+        url: `${PUBLIC_URL}/assets/question/B6/yuanzhuiti.png`,
+      },
+      {
+        size: 'middle',
+        url: `${PUBLIC_URL}/assets/question/B6/qiu.png`,
+      },
+    ],
+    top: null,
+    right: null,
+    optionDirection: 'horizontal',
+    correctIndex: 0,
+  },
+  {
+    id: 'BL2-3',
+    dir: 'B7',
+    type: 'select',
+    title: '小朋友,选一选,下面哪一个是三棱柱呢?',
+    options: [
+      {
+        size: 'middle',
+        url: `${PUBLIC_URL}/assets/question/B7/xiangzi.png`,
+      },
+      {
+        size: 'middle',
+        url: `${PUBLIC_URL}/assets/question/B7/dangao.png`,
+      },
+      {
+        size: 'middle',
+        url: `${PUBLIC_URL}/assets/question/B7/yugang.png`,
+      },
+    ],
+    top: null,
+    right: null,
+    optionDirection: 'horizontal',
+    correctIndex: 1,
+  },
+  {
+    id: 'BL2-4',
+    dir: 'B8',
+    type: 'select',
+    title: '小朋友,选一选,下面哪一个是圆柱体呢?',
+    options: [
+      {
+        size: 'middle',
+        url: `${PUBLIC_URL}/assets/question/B8/rili.png`,
+      },
+      {
+        size: 'middle',
+        url: `${PUBLIC_URL}/assets/question/B8/shu.png`,
+      },
+      {
+        size: 'middle',
+        url: `${PUBLIC_URL}/assets/question/B8/shuitong.png`,
+      },
+    ],
+    top: null,
+    right: null,
+    optionDirection: 'horizontal',
+    correctIndex: 2,
+  },
+  {
+    id: 'BL2-5',
+    dir: 'B9',
     type: 'drag',
-    title: '小朋友, 拖动一下试试吧',
+    title: '小朋友, 拖动一下试试吧!',
   },
 
 ];

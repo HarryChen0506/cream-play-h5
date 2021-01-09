@@ -12,13 +12,21 @@ import Congratulate from './Congratulate';
 import './index.less';
 import data from './data';
 
-const findQuestionById = (list, id) => list.find(v => v.dir === id);
+const findQuestionById = (list, id) => list.find(v => v.id === id);
+const findQuestionByDir = (list, id) => list.find(v => v.dir === id);
 
 const Question = () => {
   const { location } = useHistory();
   const query = parse(location.search.split('?')[1]);
-  const [id, setId] = useState(query.id || 'M1');
-  const [info, setInfo] = useState(() => findQuestionById(data, id));
+  // let info = null;
+  let info = findQuestionByDir(data, 'M1');
+  if (query.id) {
+    info = findQuestionById(data, query.id);
+  } else if (query.dir) {
+    info = findQuestionByDir(data, query.dir);
+  }
+  // const [id, setId] = useState(query.id || 'M1');
+  // const [info, setInfo] = useState(() => findQuestionById(data, id));
   const congratulateRef = useRef();
   const handleSuccess = useCallback(() => {
     congratulateRef.current && congratulateRef.current.start();
