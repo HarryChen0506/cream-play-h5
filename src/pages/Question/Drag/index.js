@@ -4,7 +4,6 @@ import React, {
 import clsx from 'clsx';
 import './index.less';
 
-// eslint-disable-next-line no-undef
 const PUBLIC_URL = __PUBLIC_URL__;
 
 const Dragger = forwardRef(({
@@ -165,9 +164,18 @@ const Group = ({ onSuccess, origin = {}, target = {} }) => {
 };
 
 const DragPlay = (props) => {
-  const { info = {} } = props;
-  // const { } = info;
-
+  // const { info = {} } = props;
+  const [result, setResult] = useState([false, false]);
+  const handleSuccess = (index) => {
+    const newResult = [...result];
+    newResult[index] = true;
+    setResult(newResult);
+  };
+  useEffect(() => {
+    if (result.every(v => v)) {
+      alert('成功');
+    }
+  }, [result]);
   return (
     <div className="component-drag" id="dragger-container">
       <div className="bg-wrap">
@@ -197,6 +205,7 @@ const DragPlay = (props) => {
             </div>
           ),
         }}
+        onSuccess={() => handleSuccess(0)}
       />
       <Group
         target={{
@@ -219,6 +228,7 @@ const DragPlay = (props) => {
             </div>
           ),
         }}
+        onSuccess={() => handleSuccess(1)}
       />
     </div>
   );

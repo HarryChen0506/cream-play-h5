@@ -6,6 +6,7 @@ import clsx from 'clsx';
 import { parse, stringify } from 'qs';
 import Select from './Select';
 import Drag from './Drag';
+import Roll from './Roll';
 import QuestionItem from './QuestionItem';
 import './index.less';
 
@@ -132,6 +133,11 @@ const questionList = [
     type: 'drag',
     title: '小朋友, 拖动一下试试吧',
   },
+  {
+    id: 'M4',
+    type: 'roll',
+    title: '小朋友, 点击推倒一下试试吧！',
+  },
 ];
 const findQuestionById = (list, id) => list.find(v => v.id === id);
 
@@ -166,6 +172,19 @@ const Question = () => {
             title={info.title}
           >
             <Drag />
+          </QuestionItem>
+        </div>
+      </div>
+    );
+  }
+  if (info.type === 'roll') {
+    return (
+      <div className="page-question">
+        <div className="page-body">
+          <QuestionItem
+            title={info.title}
+          >
+            <Roll />
           </QuestionItem>
         </div>
       </div>

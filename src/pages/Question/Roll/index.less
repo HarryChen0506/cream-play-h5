@@ -1,0 +1,31 @@
+@keyframes roll {
+  0% {
+    transform: translateX(-1rem)
+  }
+  100% {
+    transform: translateX(25rem);
+  }
+}
+.component-roll {
+  width: 35rem;
+  height: 15rem;
+  padding: 0 3rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  .image-wrap {
+    display: flex;
+    img {
+      width: 4rem;
+      &.hidden {
+        display: none
+      }
+      &.dao {
+        transform: translateX(-1rem);
+      }
+      &.roll {
+        animation: roll 3s;
+      }
+    }
+  }
+}

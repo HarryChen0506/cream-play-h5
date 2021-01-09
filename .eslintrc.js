@@ -75,5 +75,6 @@ module.exports = {
     Set: false,
     __MOCK__: false,
     INFINITY: false,
+    __PUBLIC_URL__: false,
   },
 };
