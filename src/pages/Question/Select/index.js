@@ -8,15 +8,18 @@ import './index.less';
 const { Image } = OptionItem;
 // optionDirection =  horizontal | vertical
 const Select = (props) => {
-  const { info = {} } = props;
+  const { info = {}, onSuccess } = props;
   const {
     options = [], right, top, correctIndex, optionDirection = 'horizontal',
   } = info;
   const [currentIndex, setCurrentIndex] = useState();
-  // console.log('info', info);
   const handleClick = (index) => {
-    console.log('index', index);
     setCurrentIndex(index);
+    if (index === correctIndex) {
+      setTimeout(() => {
+        typeof onSuccess === 'function' && onSuccess();
+      }, 500);
+    }
   };
   const clacOptionResult = (index) => {
     if (correctIndex === index && currentIndex === index) {

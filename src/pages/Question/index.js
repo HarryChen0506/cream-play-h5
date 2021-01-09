@@ -8,6 +8,7 @@ import Select from './Select';
 import Drag from './Drag';
 import Roll from './Roll';
 import QuestionItem from './QuestionItem';
+import Congratulate from './Congratulate';
 import './index.less';
 
 // eslint-disable-next-line no-undef
@@ -147,50 +148,36 @@ const Question = () => {
   // console.log('query', query);
   const [id, setId] = useState(query.id || 'M1');
   const [info, setInfo] = useState(() => findQuestionById(questionList, id));
+  const congratulateRef = useRef();
+  const handleSuccess = useCallback(() => {
+    congratulateRef.current && congratulateRef.current.start();
+  }, []);
   if (!info) {
     return null;
   }
   console.log('info', info);
+  let body = null;
   if (info.type === 'select') {
-    return (
-      <div className="page-question">
-        <div className="page-body">
-          <QuestionItem
-            title={info.title}
-          >
-            <Select info={info} />
-          </QuestionItem>
-        </div>
-      </div>
-    );
+    body = <Select info={info} onSuccess={handleSuccess} />;
   }
   if (info.type === 'drag') {
-    return (
-      <div className="page-question">
-        <div className="page-body">
-          <QuestionItem
-            title={info.title}
-          >
-            <Drag />
-          </QuestionItem>
-        </div>
-      </div>
-    );
+    body = <Drag onSuccess={handleSuccess} />;
   }
   if (info.type === 'roll') {
-    return (
-      <div className="page-question">
-        <div className="page-body">
-          <QuestionItem
-            title={info.title}
-          >
-            <Roll />
-          </QuestionItem>
-        </div>
-      </div>
-    );
+    body = <Roll onSuccess={handleSuccess} />;
   }
-  return null;
+  return (
+    <div className="page-question">
+      <div className="page-body">
+        <QuestionItem
+          title={info.title}
+        >
+          {body}
+        </QuestionItem>
+      </div>
+      <Congratulate ref={congratulateRef} />
+    </div>
+  );
 };
 
 export default Question;

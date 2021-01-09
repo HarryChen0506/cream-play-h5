@@ -164,7 +164,7 @@ const Group = ({ onSuccess, origin = {}, target = {} }) => {
 };
 
 const DragPlay = (props) => {
-  // const { info = {} } = props;
+  const { onSuccess } = props;
   const [result, setResult] = useState([false, false]);
   const handleSuccess = (index) => {
     const newResult = [...result];
@@ -173,9 +173,11 @@ const DragPlay = (props) => {
   };
   useEffect(() => {
     if (result.every(v => v)) {
-      alert('成功');
+      setTimeout(() => {
+        typeof onSuccess === 'function' && onSuccess();
+      }, 500);
     }
-  }, [result]);
+  }, [result, onSuccess]);
   return (
     <div className="component-drag" id="dragger-container">
       <div className="bg-wrap">
@@ -190,7 +192,7 @@ const DragPlay = (props) => {
           top: '39%',
           zIndex: 2,
           node: (
-            <div className="yuanzhu-size" style={{ opacity: 0.8 }}>
+            <div className="yuanzhu-size" style={{ opacity: 1 }}>
               <img className="img" src={`${PUBLIC_URL}/assets/question/B11/yuanzhu.png`} />
             </div>
           ),
@@ -213,7 +215,7 @@ const DragPlay = (props) => {
           top: '65%',
           zIndex: 1,
           node: (
-            <div className="shu-size">
+            <div className="shu-size" style={{ opacity: 1 }}>
               <img className="img" src={`${PUBLIC_URL}/assets/question/B11/shu.png`} />
             </div>
           ),
