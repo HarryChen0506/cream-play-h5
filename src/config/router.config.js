@@ -1,6 +1,6 @@
 // import React from 'react'
 // import BasicLayout from '@/layouts/BasicLayout'
-// import Dashboard from '@/pages/Dashboard'
+import Dashboard from '@/pages/Dashboard'
 // import Login from '@/pages/Login'
 import Question from '@/pages/Question'
 
@@ -20,7 +20,7 @@ const routerConfig = [
   {
     path: '/cream-play-h5',
     exact: true,
-    redirect: '/cream-play-h5/question',
+    redirect: '/dashboard',
   },
   // {
   //   path: '/login',
@@ -28,14 +28,16 @@ const routerConfig = [
   //   exact: true
   // },
   {
-    path: '/cream-play-h5/question',
+    path: '/question',
     component: Question,
     exact: true
   },
   {
-    path: '/question',
-    component: Question,
-    exact: true
+    path: '/dashboard',
+    name: 'dashboard',
+    exact: true, 
+    authority: [], 
+    component: Dashboard
   },
   // {
   //   path: '/',
