@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/cream-play-h5/static/css/main.1ba0ad99.chunk.css",
-    "main.js": "/cream-play-h5/static/js/main.93eb993a.chunk.js",
+    "main.js": "/cream-play-h5/static/js/main.8e8108e0.chunk.js",
     "runtime-main.js": "/cream-play-h5/static/js/runtime-main.9730d9de.js",
     "static/js/2.bcc335a5.chunk.js": "/cream-play-h5/static/js/2.bcc335a5.chunk.js",
     "index.html": "/cream-play-h5/index.html",
@@ -11,6 +11,6 @@
     "static/js/runtime-main.9730d9de.js",
     "static/js/2.bcc335a5.chunk.js",
     "static/css/main.1ba0ad99.chunk.css",
-    "static/js/main.93eb993a.chunk.js"
+    "static/js/main.8e8108e0.chunk.js"
   ]
 }
