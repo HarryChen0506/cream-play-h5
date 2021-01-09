@@ -16,12 +16,14 @@ const Congratulate = forwardRef((props, ref) => {
     },
   }));
   return (
-    <div className="component-congratulate">
+    <div
+      className={clsx({
+        'component-congratulate': true,
+        congratulate: flag,
+      })}
+    >
       <div className="image-wrap">
         <img
-          className={clsx({
-            congratulate: flag,
-          })}
           src={`${PUBLIC_URL}/assets/question/congratulate.gif`}
         />
       </div>
