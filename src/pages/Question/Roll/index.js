@@ -22,7 +22,7 @@ const RollPlay = (props) => {
             img: true,
             hidden: rolling,
           })}
-          src={`${PUBLIC_URL}/assets/question/M4/zhan.png`}
+          src={`${PUBLIC_URL}/assets/question/M7/zhan.png`}
           onClick={handleClick}
         />
         <img
@@ -32,7 +32,7 @@ const RollPlay = (props) => {
             roll: rolling,
             hidden: !rolling,
           })}
-          src={`${PUBLIC_URL}/assets/question/M4/dao.png`}
+          src={`${PUBLIC_URL}/assets/question/M7/dao.png`}
         />
       </div>
     </div>
