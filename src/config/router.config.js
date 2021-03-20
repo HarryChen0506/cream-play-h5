@@ -3,6 +3,7 @@
 import Dashboard from '@/pages/Dashboard'
 // import Login from '@/pages/Login'
 import Question from '@/pages/Question'
+import Custom from '@/pages/Custom'
 
 export const ROUTE = {
   LOGIN: '/login',
@@ -30,6 +31,11 @@ const routerConfig = [
   {
     path: '/question',
     component: Question,
+    exact: true
+  },
+  {
+    path: '/custom',
+    component: Custom,
     exact: true
   },
   {
