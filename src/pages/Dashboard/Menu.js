@@ -33,6 +33,10 @@ const Menu = () => (
     <div className="menu-group">
       <Link to="/question?dir=M7">滚动</Link>
     </div>
+    <h5>绘本</h5>
+    <div className="menu-group">
+      <Link to="/custom">藏起来</Link>
+    </div>
   </>
 );
 

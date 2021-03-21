@@ -1,0 +1,35 @@
+@keyframes congratulate {
+  0% {
+    transform: translateY(16rem)
+  }
+  25% {
+    transform: translateY(-10vh)
+  }
+  75% {
+    transform: translateY(-10vh)
+  }
+  100% {
+    transform: translateY(16rem);
+  }
+}
+
+.component-congratulate {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  transform: translateY(16rem);
+  z-index: 1000;
+  &.congratulate {
+    animation: congratulate 3s ease-in-out;
+    animation-fill-mode: forwards;
+  }
+  .image-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 15rem;
+    }
+  }
+}
