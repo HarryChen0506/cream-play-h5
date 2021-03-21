@@ -162,10 +162,10 @@ const config_h21 = {
       id: 1,
       url: `${PUBLIC_URL}/assets/custom/H21/1.png`,
       initWidth: '2rem',
-      finalWidth: '5.2rem',
+      finalWidth: '6.6rem',
       target: {
-        left: '62%',
-        top: '70.5%',
+        left: '62.5%',
+        top: '71%',
         zIndex: 2,
       },
       origin: {
@@ -178,10 +178,10 @@ const config_h21 = {
       id: 2,
       url: `${PUBLIC_URL}/assets/custom/H21/2.png`,
       initWidth: '1.2rem',
-      finalWidth: '3rem',
+      finalWidth: '4rem',
       target: {
-        left: '32.2%',
-        top: '34%',
+        left: '32.8%',
+        top: '32.5%',
         zIndex: 2,
       },
       origin: {
@@ -194,10 +194,10 @@ const config_h21 = {
       id: 3,
       url: `${PUBLIC_URL}/assets/custom/H21/3.png`,
       initWidth: '2rem',
-      finalWidth: '5.1rem',
+      finalWidth: '6.5rem',
       target: {
-        left: '38%',
-        top: '66.5%',
+        left: '37.3%',
+        top: '68.9%',
         zIndex: 2,
       },
       origin: {
@@ -210,7 +210,7 @@ const config_h21 = {
       id: 4,
       url: `${PUBLIC_URL}/assets/custom/H21/4.png`,
       initWidth: '1.5rem',
-      finalWidth: '4rem',
+      finalWidth: '4.8rem',
       target: {
         left: '50.5%',
         top: '32.5%',
@@ -226,10 +226,10 @@ const config_h21 = {
       id: 5,
       url: `${PUBLIC_URL}/assets/custom/H21/5.png`,
       initWidth: '1.5rem',
-      finalWidth: '3rem',
+      finalWidth: '4rem',
       target: {
         left: '69.5%',
-        top: '41%',
+        top: '41.5%',
         zIndex: 2,
       },
       origin: {
@@ -338,7 +338,7 @@ const config_h41 = {
       id: 4,
       url: `${PUBLIC_URL}/assets/custom/H41/4.png`,
       initWidth: '1.8rem',
-      finalWidth: '4.6rem',
+      finalWidth: '4.8rem',
       target: {
         left: '74.5%',
         top: '65%',
