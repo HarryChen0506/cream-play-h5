@@ -39,6 +39,7 @@ const Menu = () => (
       <Link to="/custom?id=H1-1">藏起来</Link>
       <Link to="/custom?id=H2-1">水果派</Link>
       <Link to="/custom?id=H4-1">城堡</Link>
+      <Link to="/custom?id=H2-3">小动物</Link>
     </div>
   </>
 );

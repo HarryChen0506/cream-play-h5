@@ -19,6 +19,12 @@ const playList = [
     type: 'drag',
     title: '小朋友，快来动动小手做一个对称的世界吧！',
   },
+  {
+    id: 'H2-3',
+    dir: 'H23',
+    type: 'customSelect',
+    title: '下面哪一组的排列顺序是正确对应小动物爱吃的食物呢？',
+  },
 ];
 
 export default playList;

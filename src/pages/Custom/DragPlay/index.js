@@ -28,7 +28,7 @@ const DragPlay = (props) => {
     }
   }, [result, onSuccess]);
   return (
-    <div className="custom-h11" id="custom-dragger-container">
+    <div className="custom-darg-play" id="custom-dragger-container">
       <div className="bg-wrap" style={{ width: background?.width, height: background?.height }}>
         <img className="img" src={background?.url} />
       </div>
