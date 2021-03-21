@@ -113,7 +113,7 @@ const calcDistance = (point1, point2) => {
     + (point1.y - point2.y) * (point1.y - point2.y);
   return Math.sqrt(sum, 0.5);
 };
-
+const SUCCESS_DISTANCE = (window.rem * 1.5) || 15;
 export const Group = ({ onResult, origin = {}, target = {} }) => {
   const [success, setSuccess] = useState(false);
   const shapeTarget = useRef();
@@ -129,7 +129,7 @@ export const Group = ({ onResult, origin = {}, target = {} }) => {
     const distance = calcDistance(shapeOrigin.current, shapeTarget.current);
     // console.log('distance', distance);
     const originComp = shapeOriginRef.current;
-    if (distance < 15) {
+    if (distance < SUCCESS_DISTANCE) {
       setSuccess(true);
       originComp.setPosition(shapeTarget.current);
       typeof onResult === 'function' && onResult(true);

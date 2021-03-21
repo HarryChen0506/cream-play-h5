@@ -33,15 +33,18 @@
           tes = x.devicePixelRatio;
           v = n ? v : 1, u = 1 / v
         }
+        let fontSize = 12
         if (a >= 650) {
-          r.style.fontSize = "17px"
+          fontSize = 17
         } else {
           if (a <= 320) {
-            r.style.fontSize = "8px"
+            fontSize = 8
           } else {
-            r.style.fontSize = a / 375 * 10 + "px"
+            fontSize = a / 375 * 10
           }
         }
+        r.style.fontSize = fontSize + "px"
+        window.rem = fontSize
       }
       x.addEventListener("resize", function () { w() });
       w()
