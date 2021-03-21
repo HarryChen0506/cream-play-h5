@@ -6,17 +6,26 @@ import clsx from 'clsx';
 import { parse, stringify } from 'qs';
 import CustomLayout from '@/components/CustomLayout';
 import Congratulate from '@/components/Congratulate';
-import PlayH11 from './H1-1';
+import DragPlay from './DragPlay';
+import data from './data';
 import './index.less';
+
+const findQuestionById = (list, id) => list.find(v => v.id === id);
 
 const Custom = () => {
   const congratulateRef = useRef();
+  const { location } = useHistory();
+  const query = parse(location.search.split('?')[1]);
 
+  let info = findQuestionById(data, 'H1-1');
+  if (query.id) {
+    info = findQuestionById(data, query.id) || { id: 'H1-1' };
+  }
   const handleSuccess = useCallback(() => {
     congratulateRef.current && congratulateRef.current.start();
   }, []);
 
-  const body = <PlayH11 onSuccess={handleSuccess} />;
+  const body = <DragPlay info={info} id={info?.id} onSuccess={handleSuccess} />;
 
   return (
     <div className="page-custom">
