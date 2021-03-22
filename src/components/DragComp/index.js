@@ -166,18 +166,53 @@ export const Group = ({ onResult, origin = {}, target = {} }) => {
 };
 
 export const Sticker = ({
-  url, left, top, zIndex, style,
-}) => (
-  <div
-    className="custom-component-sticker"
-    style={{
-      left,
-      top,
-      zIndex,
-    }}
-  >
-    <div className="sticker-size" style={style}>
-      <img className="img" src={url} />
+  url, left, top, zIndex, style, onClick, canAnimate = false, innerImage,
+}) => {
+  const [shake, setShake] = useState(false);
+  const timerId = useRef(null);
+  const handleClick = () => {
+    typeof onClick === 'function' && onClick();
+    if (!canAnimate) {
+      return;
+    }
+    setShake(true);
+    if (timerId.current) {
+      return;
+    }
+    timerId.current = setTimeout(() => {
+      setShake(false);
+      timerId.current = null;
+    }, 1000);
+  };
+
+  return (
+    <div
+      className={clsx({
+        'custom-component-sticker': true,
+        shake,
+      })}
+      style={{
+        left,
+        top,
+        zIndex,
+      }}
+    >
+      <div
+        className="sticker-size"
+        style={style}
+        onClick={handleClick}
+      >
+        <img className="img" src={url} />
+      </div>
+      {innerImage && (
+        <div
+          className="inner-image"
+          style={innerImage.style}
+          onClick={handleClick}
+        >
+          <img className="img" src={innerImage.url} />
+        </div>
+      )}
     </div>
-  </div>
-);
+  );
+};

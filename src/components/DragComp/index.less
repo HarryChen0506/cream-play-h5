@@ -8,7 +8,19 @@
 
 .custom-component-sticker {
   position: absolute;
+  &.shake {
+    animation: shake 1s ease-in;
+  }
   .sticker-size {
+    position: absolute;
+    top: 0;
+    left:0;
+    transform: translate(-50%, -50%);
+    img {
+      width: 100%;
+    }
+  }
+  .inner-image {
     position: absolute;
     top: 0;
     left:0;

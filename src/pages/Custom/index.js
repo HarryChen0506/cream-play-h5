@@ -8,6 +8,7 @@ import CustomLayout from '@/components/CustomLayout';
 import Congratulate from '@/components/Congratulate';
 import DragPlay from './DragPlay';
 import CustomSelect from './CustomSelect';
+import Choose from './Choose';
 import data from './data';
 import './index.less';
 
@@ -18,7 +19,7 @@ const Custom = () => {
   const { location } = useHistory();
   const query = parse(location.search.split('?')[1]);
 
-  let info = findQuestionById(data, 'H2-3');
+  let info = findQuestionById(data, 'H2-2');
   if (query.id) {
     info = findQuestionById(data, query.id) || { id: 'H1-1' };
   }
@@ -32,6 +33,8 @@ const Custom = () => {
     body = <DragPlay info={info} id={info?.id} onSuccess={handleSuccess} />;
   } else if (info.type === 'customSelect') {
     body = <CustomSelect info={info} onSuccess={handleSuccess} />;
+  } else if (info.type === 'choose') {
+    body = <Choose info={info} onSuccess={handleSuccess} />;
   }
 
   return (

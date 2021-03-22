@@ -25,6 +25,12 @@ const playList = [
     type: 'customSelect',
     title: '下面哪一组的排列顺序是正确对应小动物爱吃的食物呢？',
   },
+  {
+    id: 'H2-2',
+    dir: 'H22',
+    type: 'choose',
+    title: '赶紧选择一件礼物送给贝儿吧！',
+  },
 ];
 
 export default playList;
