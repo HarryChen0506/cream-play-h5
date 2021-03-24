@@ -113,7 +113,7 @@ const calcDistance = (point1, point2) => {
     + (point1.y - point2.y) * (point1.y - point2.y);
   return Math.sqrt(sum, 0.5);
 };
-const SUCCESS_DISTANCE = (window.rem * 1.5) || 15;
+const SUCCESS_DISTANCE = (window.rem * 2.5) || 25;
 export const Group = ({ onResult, origin = {}, target = {} }) => {
   const [success, setSuccess] = useState(false);
   const shapeTarget = useRef();
