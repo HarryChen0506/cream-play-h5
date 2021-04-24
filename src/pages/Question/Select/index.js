@@ -8,7 +8,7 @@ import './index.less';
 const { Image } = OptionItem;
 // optionDirection =  horizontal | vertical
 const Select = (props) => {
-  const { info = {}, onSuccess } = props;
+  const { info = {}, onSuccess, onFail } = props;
   const {
     options = [], right, top, correctIndex, optionDirection = 'horizontal',
   } = info;
@@ -19,6 +19,8 @@ const Select = (props) => {
       setTimeout(() => {
         typeof onSuccess === 'function' && onSuccess();
       }, 500);
+    } else {
+      typeof onFail === 'function' && onFail();
     }
   };
   const clacOptionResult = (index) => {

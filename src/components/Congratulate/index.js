@@ -7,11 +7,13 @@ import './index.less';
 const PUBLIC_URL = __PUBLIC_URL__;
 const Congratulate = forwardRef((props, ref) => {
   const [flag, setFlag] = useState(false);
+  const { onAnimateFinish } = props;
   useImperativeHandle(ref, () => ({
     start: () => {
       setFlag(true);
       setTimeout(() => {
         setFlag(false);
+        typeof onAnimateFinish === 'function' && onAnimateFinish();
       }, 3000);
     },
   }));

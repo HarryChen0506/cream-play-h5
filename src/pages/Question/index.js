@@ -4,11 +4,12 @@ import React, {
 import { useParams, useHistory } from 'react-router-dom';
 import clsx from 'clsx';
 import { parse, stringify } from 'qs';
+import bridge from '@/services/bridge';
+import Congratulate from '@/components/Congratulate';
 import Select from './Select';
 import Drag from './Drag';
 import Roll from './Roll';
 import QuestionItem from './QuestionItem';
-import Congratulate from './Congratulate';
 import './index.less';
 import data from './data';
 
@@ -29,6 +30,7 @@ const Question = () => {
   // const [info, setInfo] = useState(() => findQuestionById(data, id));
   const congratulateRef = useRef();
   const handleSuccess = useCallback(() => {
+    bridge.didSelectCorrectAnswer();
     congratulateRef.current && congratulateRef.current.start();
   }, []);
   if (!info) {
@@ -37,7 +39,15 @@ const Question = () => {
   // console.log('info', info);
   let body = null;
   if (info.type === 'select') {
-    body = <Select info={info} onSuccess={handleSuccess} />;
+    body = (
+      <Select
+        info={info}
+        onSuccess={handleSuccess}
+        onFail={() => {
+          bridge.didSelectIncorrectAnswer();
+        }}
+      />
+    );
   }
   if (info.type === 'drag') {
     body = <Drag onSuccess={handleSuccess} />;
@@ -54,7 +64,12 @@ const Question = () => {
           {body}
         </QuestionItem>
       </div>
-      <Congratulate ref={congratulateRef} />
+      <Congratulate
+        ref={congratulateRef}
+        onAnimateFinish={() => {
+          bridge.selectCorrectAnswerAnimationDidEnd();
+        }}
+      />
     </div>
   );
 };

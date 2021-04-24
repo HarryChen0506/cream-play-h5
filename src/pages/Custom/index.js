@@ -6,6 +6,7 @@ import clsx from 'clsx';
 import { parse, stringify } from 'qs';
 import CustomLayout from '@/components/CustomLayout';
 import Congratulate from '@/components/Congratulate';
+import bridge from '@/services/bridge';
 import DragPlay from './DragPlay';
 import CustomSelect from './CustomSelect';
 import Choose from './Choose';
@@ -24,6 +25,7 @@ const Custom = () => {
     info = findQuestionById(data, query.id) || { id: 'H1-1' };
   }
   const handleSuccess = useCallback(() => {
+    bridge.didSelectCorrectAnswer();
     congratulateRef.current && congratulateRef.current.start();
   }, []);
 
@@ -44,7 +46,12 @@ const Custom = () => {
           {body}
         </CustomLayout>
       </div>
-      <Congratulate ref={congratulateRef} />
+      <Congratulate
+        ref={congratulateRef}
+        onAnimateFinish={() => {
+          bridge.selectCorrectAnswerAnimationDidEnd();
+        }}
+      />
     </div>
   );
 };

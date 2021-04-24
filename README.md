@@ -3,6 +3,8 @@
 
 [demo](https://harrychen0506.github.io/cream-play-h5/)
 
+http://creamstatic.ericjee.top/
+
 ### init 
 
 ``` bash
