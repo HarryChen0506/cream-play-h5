@@ -85,47 +85,15 @@
         // 将bridge赋值到window.bridge
         window.bridge = bridge;
         console.log("初始化", bridge);
-        var uniqueId = 1;
-        function log(message, data) {
-          var log = document.getElementById("log");
-          var el = document.createElement("div");
-          el.className = "logLine";
-          el.innerHTML =
-            uniqueId++ + ". " + message + ":<br/>" + JSON.stringify(data);
-          if (log.children.length) {
-            log.insertBefore(el, log.children[0]);
-          } else {
-            log.appendChild(el);
-          }
-        }
 
         bridge.registerHandler(
           "testJavascriptHandler",
           function (data, responseCallback) {
-            log("ObjC called testJavascriptHandler with", data);
             var responseData = { "Javascript Says": "Right back atcha!" };
-            log("JS responding with", responseData);
             responseCallback(responseData);
+            console.log("testJavascriptHandler", responseData);
           }
         );
-
-        document.body.appendChild(document.createElement("br"));
-
-        var callbackButton = document
-          .getElementById("buttons")
-          .appendChild(document.createElement("button"));
-        callbackButton.innerHTML = "Fire testObjcCallback";
-        callbackButton.onclick = function (e) {
-          e.preventDefault();
-          log('JS calling handler "testObjcCallback"');
-          bridge.callHandler(
-            "testObjcCallback",
-            { foo: "bar" },
-            function (response) {
-              log("JS got response", response);
-            }
-          );
-        };
       });
 
       // setupWebViewJavascriptBridge(function (bridge) {
@@ -148,8 +116,6 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <div id="buttons"></div>
-    <div id="log"></div>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
