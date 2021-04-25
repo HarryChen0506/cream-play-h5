@@ -1,30 +1,41 @@
 // app-webview bridge
 /* eslint-disable */
 
-const bridge = {};
+// bridge.callHandler("Log", "Foo")
+// bridge.callHandler("getScreenHeight", null, function(response) {
+// 	alert('Screen height:' + response)
+// })
+
+
 
 function before(callback) {
   return function () {
-    // if (!window.creamplay) {
+    // if (!window.bridge) {
     //   return;
     // }
     return typeof callback === 'function' && callback();
   };
 }
 
-bridge.didSelectCorrectAnswer = before(() => {
+const didSelectCorrectAnswer = before(() => {
   console.log('didSelectCorrectAnswer');
-  window.creamplay && window.creamplay.didSelectCorrectAnswer && window.creamplay.didSelectCorrectAnswer();
+  window.bridge && window.bridge.callHandler && window.bridge.callHandler('didSelectCorrectAnswer');
 });
 
-bridge.didSelectIncorrectAnswer = before(() => {
+const didSelectIncorrectAnswer = before(() => {
   console.log('didSelectIncorrectAnswer');
-  window.creamplay && window.creamplay.didSelectCorrectAnswer && window.creamplay.didSelectIncorrectAnswer();
+  window.bridge && window.bridge.callHandler && window.bridge.callHandler('didSelectIncorrectAnswer');
 });
 
-bridge.selectCorrectAnswerAnimationDidEnd = before(() => {
+const selectCorrectAnswerAnimationDidEnd = before(() => {
   console.log('selectCorrectAnswerAnimationDidEnd');
-  window.creamplay && window.creamplay.didSelectCorrectAnswer && window.creamplay.selectCorrectAnswerAnimationDidEnd();
+  window.bridge && window.bridge.callHandler && window.bridge.callHandler('selectCorrectAnswerAnimationDidEnd');
 });
 
-export default bridge;
+const viewBridge = {
+  didSelectCorrectAnswer,
+  didSelectIncorrectAnswer,
+  selectCorrectAnswerAnimationDidEnd
+};
+
+export default viewBridge;
