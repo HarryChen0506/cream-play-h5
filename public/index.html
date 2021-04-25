@@ -82,6 +82,9 @@
       }
 
       setupWebViewJavascriptBridge(function (bridge) {
+        // 将bridge赋值到window.bridge
+        window.bridge = bridge;
+        console.log("初始化", bridge);
         var uniqueId = 1;
         function log(message, data) {
           var log = document.getElementById("log");
