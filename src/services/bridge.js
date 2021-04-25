@@ -19,17 +19,23 @@ function before(callback) {
 
 const didSelectCorrectAnswer = before(() => {
   console.log('didSelectCorrectAnswer');
-  window.bridge && window.bridge.callHandler && window.bridge.callHandler('didSelectCorrectAnswer');
+  window.bridge && window.bridge.callHandler && window.bridge.callHandler('didSelectCorrectAnswer', null, (response) => {
+    alert('cream play:' + response)
+  });
 });
 
 const didSelectIncorrectAnswer = before(() => {
   console.log('didSelectIncorrectAnswer');
-  window.bridge && window.bridge.callHandler && window.bridge.callHandler('didSelectIncorrectAnswer');
+  window.bridge && window.bridge.callHandler && window.bridge.callHandler('didSelectIncorrectAnswer', null, (response) => {
+    alert('cream play:' + response)
+  });
 });
 
 const selectCorrectAnswerAnimationDidEnd = before(() => {
   console.log('selectCorrectAnswerAnimationDidEnd');
-  window.bridge && window.bridge.callHandler && window.bridge.callHandler('selectCorrectAnswerAnimationDidEnd');
+  window.bridge && window.bridge.callHandler && window.bridge.callHandler('selectCorrectAnswerAnimationDidEnd', null, (response) => {
+    alert('cream play:' + response)
+  });
 });
 
 const viewBridge = {
